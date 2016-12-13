@@ -23,7 +23,9 @@
     [super viewDidLoad];
     
     [self moreLabel];
+    
     [self setUIYYLabel];
+    
 }
 
 #pragma mark - 字符的处理
@@ -62,10 +64,10 @@
     _label.userInteractionEnabled = YES;
     _label.numberOfLines = 0;
     _label.textVerticalAlignment = YYTextVerticalAlignmentTop;
-    _label.gjcf_size = CGSizeMake(TSZSystemScreenWidth - 24, 36);
+    _label.tsz_size = CGSizeMake(TSZSystemScreenWidth - 24, 36);
 
-    _label.gjcf_top  =  20;
-    _label.gjcf_left  = 12;
+    _label.tsz_top  =  20;
+    _label.tsz_left  = 12;
     _label.attributedText = text;
     
      NSMutableAttributedString *textMore = [[NSMutableAttributedString alloc] initWithString:@"...More"];
@@ -76,7 +78,7 @@
     hi.tapAction = ^(UIView *containerView, NSAttributedString *textxx, NSRange range, CGRect rect) {
        // YYLabel *label = self.label;
         
-        _label.gjcf_height = [self heightForAttributeText:text maxWidth:TSZSystemScreenWidth - 24];
+        _label.tsz_height = [self heightForAttributeText:text maxWidth:TSZSystemScreenWidth - 24];
         
         
     };
@@ -93,7 +95,7 @@
     seeMore.attributedText = textMore;
    [seeMore sizeToFit];
     
-    NSAttributedString *truncationToken = [NSAttributedString yy_attachmentStringWithContent:seeMore contentMode:UIViewContentModeCenter attachmentSize:seeMore.gjcf_size alignToFont:text.yy_font alignment:YYTextVerticalAlignmentCenter];
+    NSAttributedString *truncationToken = [NSAttributedString yy_attachmentStringWithContent:seeMore contentMode:UIViewContentModeCenter attachmentSize:seeMore.tsz_size alignToFont:text.yy_font alignment:YYTextVerticalAlignmentCenter];
     
     _label.truncationToken = truncationToken;
     
@@ -104,10 +106,10 @@
 - (void)setUIYYLabel{
     
     YYLabel *label = [[YYLabel alloc] init];
-    //label.gjcf_height = 100;
-    label.gjcf_width = TSZSystemScreenWidth  - 24;
-    label.gjcf_centerY = self.view.gjcf_centerY;
-    label.gjcf_centerX = self.view.gjcf_centerX;
+    //label.tsz_height = 100;
+    label.tsz_width = TSZSystemScreenWidth  - 24;
+    label.tsz_centerY = self.view.tsz_centerY;
+    label.tsz_centerX = self.view.tsz_centerX;
     label.textColor = [UIColor redColor];
     label.numberOfLines = 0;
     label.textVerticalAlignment = YYTextVerticalAlignmentTop;
@@ -146,9 +148,9 @@
     
     
     
-//    label.gjcf_height = [self heightForAttributeText:text maxWidth:TSZSystemScreenWidth - 24];
+//    label.tsz_height = [self heightForAttributeText:text maxWidth:TSZSystemScreenWidth - 24];
     label.backgroundColor = [UIColor grayColor];
-    label.gjcf_height = size.height;
+    label.tsz_height = size.height;
     
     label.attributedText = text;
     
@@ -165,7 +167,7 @@
 
 - (void)closeLabel{
     
-     _label.gjcf_size = CGSizeMake(TSZSystemScreenWidth - 24, 36);
+     _label.tsz_size = CGSizeMake(TSZSystemScreenWidth - 24, 36);
     
 }
 
